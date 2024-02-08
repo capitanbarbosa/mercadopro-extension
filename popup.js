@@ -26,10 +26,22 @@ function formatData(productData) {
   const lastUpdated = new Date(productData.last_updated);
   const now = new Date();
 
-  // Calculate time since published
-  const timeSincePublished = Math.floor(
+  // Calculate time since published in days
+  const timeSincePublishedDays = Math.floor(
     (now - dateCreated) / (1000 * 60 * 60 * 24)
   );
+
+  // Calculate time since published in months
+  const monthsSincePublished = Math.floor(timeSincePublishedDays / 30); // Simple approximation
+
+  // More accurate calculation for months since published
+  let yearsDifference = now.getFullYear() - dateCreated.getFullYear();
+  let monthsDifference = now.getMonth() - dateCreated.getMonth();
+  let monthsSincePublishedAccurate = yearsDifference * 12 + monthsDifference;
+  // Adjust for cases where the day of the month in 'now' is less than the day of the month in 'dateCreated'
+  if (now.getDate() < dateCreated.getDate()) {
+    monthsSincePublishedAccurate--;
+  }
 
   // Format dates
   const dateOptions = {
@@ -52,7 +64,7 @@ function formatData(productData) {
   document.getElementById("title").innerText = productData.title;
   document.getElementById(
     "dateCreated"
-  ).innerText = `Date Created: ${formattedDateCreated} (${timeSincePublished} days ago)`;
+  ).innerText = `Date Created: ${formattedDateCreated} (${timeSincePublishedDays} days ago, ${monthsSincePublishedAccurate} months ago)`;
   document.getElementById("health").innerText = `Health: ${(
     productData.health * 100
   ).toFixed(2)}%`;
