@@ -2,10 +2,28 @@
 <html>
   <head>
     <title>MercadoLibre Product Date</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 10px;
+      }
+      .product-info {
+        margin-bottom: 10px;
+      }
+      .product-info h2,
+      .product-info p {
+        margin: 5px 0;
+      }
+    </style>
   </head>
   <body>
-    <button id="getDate">Get Date Created</button>
-    <div id="result"></div>
+    <div class="product-info">
+      <h2 id="title"></h2>
+      <p id="dateCreated"></p>
+      <p id="health"></p>
+      <p id="warranty"></p>
+      <p id="lastUpdated"></p>
+    </div>
     <script src="popup.js"></script>
   </body>
 </html>
