@@ -60,6 +60,8 @@ function formatData(productData) {
     dateOptions
   );
 
+  document.getElementById("thumbnail").src = productData.thumbnail;
+
   // Insert the formatted data into the HTML
   document.getElementById("title").innerText = productData.title;
   document.getElementById(
