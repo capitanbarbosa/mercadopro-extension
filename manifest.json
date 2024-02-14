@@ -4,6 +4,7 @@
     "version": "1.0",
     "description": "Get the creation date of a product on MercadoLibre.",
     "permissions": ["activeTab"],
+    "host_permissions": ["https://articulo.mercadolibre.com.co/*"],
     "action": {
       "default_popup": "popup.html",
       "default_icon": {
