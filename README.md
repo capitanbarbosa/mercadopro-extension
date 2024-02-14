@@ -1,6 +1,7 @@
 ## to-do : agregarle ventas por mes, seleccionando el div de unidades vendidas y diviendo por los meses pasados desde start_time.
 ## agregarle logo de la extension
 ## ponerle los edges, styling al popup mas elegante, con shadowing.
+# Make it stay open when clicking on other stuff. only close when button is pushed
 
 ## Installation
 - Load your extension into Chrome: Open Chrome, navigate to chrome://extensions/, enable "Developer mode", click "Load unpacked", and select your extension's directory.
