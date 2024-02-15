@@ -1,13 +1,11 @@
 function fetchProductData() {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     const url = new URL(tabs[0].url);
-    // Updated regex to match country-specific product IDs
-    const regex = /(?:MLA|MLM|MLC|MCO)-([0-9]+)/;
+    const regex = /MCO-([0-9]+)/; // Regular expression to match the product ID
     const match = url.pathname.match(regex);
     if (match && match[1]) {
-      const countryId = match[0].substr(0, 3); // Extracts the country ID (MLA, MLM, MLC, MCO)
       const productId = match[1];
-      fetch(`https://api.mercadolibre.com/items/${countryId}${productId}`)
+      fetch(`https://api.mercadolibre.com/items/MCO${productId}`)
         .then((response) => response.json())
         .then((data) => formatData(data))
         .catch((error) => {
