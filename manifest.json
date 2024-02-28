@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
     "name": "MercadoLibre Product Date",
-    "version": "1.0",
+    "version": "1.0.1",
     "description": "Get the creation date of a product on MercadoLibre.",
     "permissions": ["activeTab"],
     "host_permissions": ["https://articulo.mercadolibre.com.co/*"],
