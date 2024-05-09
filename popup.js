@@ -3,7 +3,8 @@ let monthsSincePublishedAccurate = 0; // Define it globally
 function fetchProductData() {
   chrome.tabs.query({ active: true, currentWindow: true }, function (tabs) {
     const url = new URL(tabs[0].url);
-    const regex = /(?:MLA|MLM|MLC|MCO)-([0-9]+)/;
+    // Updated regex to include MLU
+    const regex = /(?:MLA|MLM|MLC|MCO|MLU)-([0-9]+)/;
     const match = url.pathname.match(regex);
     if (match && match[1]) {
       const countryId = match[0].substr(0, 3);
